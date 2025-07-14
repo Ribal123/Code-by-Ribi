@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Detail - LearnOnline</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" style="padding-left:40px;padding-top:0;padding-bottom:0;padding-right:0;margin:0;display:flex;align-items:center;">
+      <img src="images/Logo1.png" alt="LearnOnline Logo" style="height:110px;width:110px;min-width:110px;min-height:110px;vertical-align:middle;margin:-18px 0 -18px 0;" />
+    </div>
+    <div class="hamburger" id="hamburgerMenu" aria-label="Open menu" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" style="color:#fff;">Home</a></li>
+      <li><a href="courses.html" style="color:#fff;">Courses</a></li>
+      <li><a href="contact.html" style="color:#fff;">Contact</a></li>
+      <li class="nav-register-login" style="display:none;"><a href="#" id="mobileRegisterLink">Register</a></li>
+      <li class="nav-register-login" style="display:none;"><a href="#" id="mobileLoginLink">Login</a></li>
+    </ul>
+    <div id="navbarActions" style="display:flex;gap:1rem;align-items:center;">
+      <button id="registerBtn" class="btn" style="font-size:1rem;">Register</button>
+      <button id="loginBtn" class="btn" style="font-size:1rem;background:#41aaff;">Login</button>
+      <div class="profile-menu" id="profileMenu" style="display:none;">
+        <img src="images/profile-icon.png" alt="Profile" class="profile-icon" id="profileButton" style="width:40px;height:40px;border-radius:50%;border:2px solid #f53777;background:#fff;object-fit:cover;cursor:pointer;" />
+        <div class="dropdown" id="dropdownMenu" style="display:none;position:absolute;right:0;top:48px;background:#232323;border-radius:10px;box-shadow:0 2px 12px rgba(65,170,255,0.13);min-width:160px;z-index:1000;">
+          <a href="profile.html" style="display:block;padding:0.9rem 1.2rem;color:#fff;text-decoration:none;font-size:1.05rem;border-bottom:1px solid #333;transition:background 0.2s;">View Profile</a>
+          <a href="#" id="logoutProfile" style="display:block;padding:0.9rem 1.2rem;color:#f53777;text-decoration:none;font-size:1.05rem;cursor:pointer;">Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <section class="course-banner" style="position:relative;z-index:1;overflow:hidden;">
+    <video autoplay muted loop playsinline poster="images/hero-poster.jpg" id="courseBannerBgVideo"
+      style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;">
+      <source src="videos/Vid.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <h1 style="position:relative;z-index:2;">Web Development Masterclass</h1>
+    <p style="position:relative;z-index:2;">Learn HTML, CSS, JavaScript and build real projects!</p>
+    <a href="contact.html" class="btn enroll-btn" style="position:relative;z-index:2;">Enroll Now</a>
+  </section>
+  <section class="course-detail">
+    <h2>Course Overview</h2>
+    <p>
+      This comprehensive web development course takes you from absolute beginner to job-ready developer.
+      Learn the latest technologies with hands-on projects.
+    </p>
+    <h3>What You'll Learn</h3>
+    <ul class="course-topics">
+      <li>✅ HTML5 and Semantic Structure</li>
+      <li>✅ Modern CSS3 with Flexbox & Grid</li>
+      <li>✅ JavaScript Fundamentals & ES6+</li>
+      <li>✅ Responsive Design Principles</li>
+      <li>✅ Animations & Interactivity</li>
+      <li>✅ Deploying your site online</li>
+    </ul>
+    
+    <h3>Course Tutorials</h3>
+    <div class="tutorial-list">
+      <div class="tutorial-item">
+        <h4>Lesson 1: Introduction to HTML</h4>
+        <p>Video Tutorial: <a href="https://www.youtube.com/watch?v=UB1O30fR-EE" target="_blank">Watch Now</a></p>
+      </div>
+      <div class="tutorial-item">
+        <h4>Lesson 2: Styling with CSS</h4>
+        <p>Video Tutorial: <a href="https://www.youtube.com/watch?v=yfoY53QXEnI" target="_blank">Watch Now</a></p>
+      </div>
+      <div class="tutorial-item">
+        <h4>Lesson 3: JavaScript Basics</h4>
+        <p>Video Tutorial: <a href="https://www.youtube.com/watch?v=W6NZfCO5SIk" target="_blank">Watch Now</a></p>
+      </div>
+      <div class="tutorial-item">
+        <h4>Lesson 4: Building a Responsive Page</h4>
+        <p>Video Tutorial: <a href="https://www.youtube.com/watch?v=srvUrASNj0s" target="_blank">Watch Now</a></p>
+      </div>
+    </div>
+  </section>
+
+  
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>LearnOnline</h2>
+        <p>Empowering learners everywhere with quality online education and resources.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="footer-newsletter">
+        <h3>Subscribe</h3>
+        <p>Get the latest courses and updates directly in your inbox.</p>
+        <form id="newsletter-form">
+          <input type="email" id="email" placeholder="Your email address" required />
+          <button type="submit">Subscribe</button>
+        </form>
+        <p id="form-message"></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 LearnOnline. All rights reserved.</p>
+    </div>
+  </footer>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; }
+.footer { background-color: #121212; color: #f1f1f1; padding: 40px 20px 20px; }
+.footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; max-width: 1200px; margin: auto; }
+.footer-brand h2 { color: #ec1f90; margin-bottom: 10px; }
+.footer-brand p { line-height: 1.6; max-width: 300px; }
+.social-icons a { color: #f1f1f1; margin-right: 10px; font-size: 1.2rem; transition: color 0.3s; }
+.social-icons a:hover { color: #ec1f90; }
+.footer-links h3, .footer-newsletter h3 { margin-bottom: 10px; color: #ec1f90; }
+.footer-links ul { list-style: none; }
+.footer-links ul li { margin-bottom: 8px; }
+.footer-links ul li a { color: #f1f1f1; text-decoration: none; transition: color 0.3s; }
+.footer-links ul li a:hover { color: #ec1f90; }
+.footer-newsletter p { margin-bottom: 10px; max-width: 300px; }
+.footer-newsletter form { display: flex; flex-wrap: wrap; gap: 10px; }
+.footer-newsletter input { padding: 10px; flex: 1 1 200px; border: none; border-radius: 4px; }
+.footer-newsletter button { padding: 10px 20px; background-color: #ec1f90; color: #fff; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
+.footer-newsletter button:hover { background-color: #ec1f90; }
+#form-message {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #6fd6ff !important;
+}
+.footer-bottom { text-align: center; margin-top: 30px; border-top: 1px solid #333; padding-top: 15px; font-size: 0.9rem; color: #bbb; }
+@media (max-width: 768px) { .footer-container { flex-direction: column; align-items: flex-start; } }
+.footer-link-blue {
+  color: #ec1f90 !important;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.footer-link-blue:hover {
+  color: #1565c0 !important;
+  text-decoration: underline;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('newsletter-form');
+  if(form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('form-message');
+      if (email && email.includes('@')) {
+        message.textContent = 'Thank you for subscribing!';
+        form.reset();
+      } else {
+        message.textContent = 'Please enter a valid email address.';
+      }
+    });
+  }
+});
+</script>
+  <script src="js/main.js"></script>
+  <script>
+    // Helper function to create modal
+    function createModal(type) {
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+      modal.id = type + 'Modal';
+      modal.style.display = 'flex';
+      modal.innerHTML = `
+        <div class="modal-content">
+          <span class="close" id="close${type.charAt(0).toUpperCase() + type.slice(1)}Modal">&times;</span>
+          <h2>${type === 'register' ? 'Register' : 'Login'}</h2>
+          ${type === 'register' ? `
+            <input type="text" id="registerName" placeholder="Full Name" required />
+            <input type="email" id="registerEmail" placeholder="Email Address" required />
+            <input type="password" id="registerPassword" placeholder="Password" required />
+            <button class="btn" id="submitRegister">Create Account</button>
+            <p style="margin-top:1rem;font-size:0.9rem;color:#bbb;text-align:center;">
+              By continuing, you agree to our <a href="#" style="color:#41aaff;text-decoration:underline;">Terms of Service</a> and
+              <a href="#" style="color:#41aaff;text-decoration:underline;">Privacy Policy</a>.
+            </p>
+          ` : `
+            <input type="email" id="loginEmail" placeholder="Email Address" required />
+            <input type="password" id="loginPassword" placeholder="Password" required />
+            <button class="btn" id="submitLogin">Login</button>
+            <p style="margin-top:1rem;font-size:0.9rem;color:#bbb;text-align:center;">
+              Don't have an account? <a href="#" id="openRegisterModal" style="color:#41aaff;text-decoration:underline;">Register here</a>.
+            </p>
+          `}
+        </div>
+      `;
+      document.body.appendChild(modal);
+      // Close modal logic
+      modal.querySelector('.close').onclick = () => modal.remove();
+      window.onclick = (event) => {
+        if (event.target === modal) modal.remove();
+      };
+      // Register link in login modal
+      if (type === 'login') {
+        modal.querySelector('#openRegisterModal').onclick = (e) => {
+          e.preventDefault();
+          modal.remove();
+          createModal('register');
+        };
+      }
+    }
+    // Register button
+    document.getElementById('registerBtn').onclick = () => createModal('register');
+    // Login button
+    document.getElementById('loginBtn').onclick = () => createModal('login');
+
+    // Helper to show/hide profile and buttons
+    function updateAuthUI(isLoggedIn) {
+      const registerBtn = document.getElementById('registerBtn');
+      const loginBtn = document.getElementById('loginBtn');
+      const profileMenu = document.getElementById('profileMenu');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+      if (isLoggedIn) {
+        if (registerBtn) registerBtn.style.display = 'none';
+        if (loginBtn) loginBtn.style.display = 'none';
+        if (profileMenu) profileMenu.style.display = 'block';
+        if (dropdownMenu) dropdownMenu.style.display = 'none';
+      } else {
+        if (registerBtn) registerBtn.style.display = '';
+        if (loginBtn) loginBtn.style.display = '';
+        if (profileMenu) profileMenu.style.display = 'none';
+        if (dropdownMenu) dropdownMenu.style.display = 'none';
+      }
+    }
+
+    // Registration and Login logic
+    function handleRegister() {
+      const name = document.getElementById('registerName').value.trim();
+      const email = document.getElementById('registerEmail').value.trim().toLowerCase();
+      const password = document.getElementById('registerPassword').value;
+      if (!name || !email || !password) {
+        alert('Please fill all fields.');
+        return;
+      }
+      // Save to localStorage
+      localStorage.setItem('learnonline_user', JSON.stringify({ name, email, password }));
+      alert('Registration successful! You can now login.');
+      document.querySelector('.modal').remove();
+    }
+    function handleLogin() {
+      const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+      const password = document.getElementById('loginPassword').value;
+      const user = JSON.parse(localStorage.getItem('learnonline_user'));
+      if (user && user.email === email && user.password === password) {
+        alert('Login successful!');
+        document.querySelector('.modal').remove();
+        localStorage.setItem('learnonline_loggedin', 'true');
+        updateAuthUI(true);
+      } else {
+        alert('Invalid email or password!');
+      }
+    }
+    // Listen for modal creation
+    const observer = new MutationObserver(() => {
+      const regBtn = document.getElementById('submitRegister');
+      if (regBtn) regBtn.onclick = handleRegister;
+      const logBtn = document.getElementById('submitLogin');
+      if (logBtn) logBtn.onclick = handleLogin;
+    });
+    observer.observe(document.body, { childList: true });
+
+    // On page load, show profile if already logged in
+    (function() {
+      const user = JSON.parse(localStorage.getItem('learnonline_user'));
+      if (user && user.email && user.password) {
+        if (localStorage.getItem('learnonline_loggedin') === 'true') {
+          updateAuthUI(true);
+        }
+      }
+    })();
+
+    // Logout functionality
+    const logoutProfile = document.getElementById('logoutProfile');
+    if (logoutProfile) {
+      logoutProfile.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('Logged out successfully!');
+        localStorage.setItem('learnonline_loggedin', 'false');
+        updateAuthUI(false);
+        if (dropdownMenu) dropdownMenu.style.display = 'none';
+      });
+    }
+
+    // Dropdown menu toggle and close logic
+    const profileButton = document.getElementById('profileButton');
+    const profileMenu = document.getElementById('profileMenu');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    if (profileButton && dropdownMenu) {
+      profileButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+      });
+      document.addEventListener('click', (e) => {
+        if (dropdownMenu.style.display === 'block' && !dropdownMenu.contains(e.target) && e.target !== profileButton) {
+          dropdownMenu.style.display = 'none';
+        }
+      });
+      const viewProfile = dropdownMenu.querySelector('a[href="profile.html"]');
+      if (viewProfile) {
+        viewProfile.addEventListener('click', (e) => {
+          dropdownMenu.style.display = 'none';
+        });
+      }
+    }
+    // Mobile menu toggle
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const navLinks = document.getElementById('navLinks');
+    hamburgerMenu.addEventListener('click', () => {
+      const isOpen = navLinks.style.display === 'flex';
+      navLinks.style.display = isOpen ? 'none' : 'flex';
+    });
+  </script>
+</body>
+<script>
+// Show correct profile image in navbar icon everywhere
+document.addEventListener('DOMContentLoaded', function() {
+  function setAllProfileIcons() {
+    const user = JSON.parse(localStorage.getItem('loggedInUser') || '{}');
+    let avatar = '';
+    if(user && user.email) {
+      avatar = localStorage.getItem('avatar_' + user.email) || '';
+    }
+    if(!avatar) avatar = localStorage.getItem('profileAvatar') || '';
+    if(!avatar) avatar = 'images/profile-icon.png';
+    var icons = document.querySelectorAll('#profileButton, .profile-avatar');
+    icons.forEach(function(icon) {
+      icon.src = avatar;
+    });
+  }
+  setAllProfileIcons();
+});
+</script>
+</html>
