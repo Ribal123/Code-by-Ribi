@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses - LearnOnline</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="icon" type="image/png" href="images/Logo1.png">
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* ...existing code... */
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+      margin: 0 auto !important;
+      padding: 0;
+      justify-content: center;
+      flex: 1;
+    }
+    .footer-links {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+    .footer-links h4 {
+      color: #fff;
+      font-size: 1.1rem;
+      margin-bottom: 0.7rem;
+      letter-spacing: 1px;
+    }
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .footer-links li {
+      margin: 0;
+    }
+    .footer-link-blue {
+      color: #2196f3 !important;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .footer-link-blue:hover {
+      color: #1565c0 !important;
+      text-decoration: underline;
+    }
+    .footer-newsletter h4 {
+      font-size: 1.15rem;
+      margin-bottom: 0.7rem;
+      color: #1a237e;
+      font-weight: 700;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .newsletter-form input[type="email"] {
+      padding: 0.5rem 0.8rem;
+      border-radius: 5px;
+      border: 1px solid #bdbdbd;
+      font-size: 1rem;
+      outline: none;
+    }
+    .newsletter-form button {
+      background: #1976d2;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 0.5rem 1.1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .newsletter-form button:hover {
+      background: #0d47a1;
+    }
+    @media (max-width: 700px) {
+      .footer-links-newsletter {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+    }
+    @media (max-width: 600px) {
+      .footer-links ul {
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+    }
+    .view-details-btn.locked {
+      background: #bdbdbd !important;
+      color: #fff !important;
+      cursor: not-allowed;
+      pointer-events: auto;
+    }
+    .view-details-btn .lock-icon {
+      color: #1565c0;
+      font-size: 1.1em;
+      vertical-align: middle;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; }
+    .footer { background-color: #121212; color: #f1f1f1; padding: 40px 20px 20px; }
+    .footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; max-width: 1200px; margin: auto; }
+    .footer-brand h2 { color: #ec1f90; margin-bottom: 10px; }
+    .footer-brand p { line-height: 1.6; max-width: 300px; }
+    .social-icons a { color: #f1f1f1; margin-right: 10px; font-size: 1.2rem; transition: color 0.3s; }
+    .social-icons a:hover { color: #ec1f90; }
+    .footer-links h3, .footer-newsletter h3 { margin-bottom: 10px; color: #ec1f90; }
+    .footer-links ul { list-style: none; }
+    .footer-links ul li { margin-bottom: 8px; }
+    .footer-links ul li a { color: #f1f1f1; text-decoration: none; transition: color 0.3s; }
+    .footer-links ul li a:hover { color: #ec1f90; }
+    .footer-newsletter p { margin-bottom: 10px; max-width: 300px; }
+    .footer-newsletter form { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-newsletter input { padding: 10px; flex: 1 1 200px; border: none; border-radius: 4px; }
+    .footer-newsletter button { padding: 10px 20px; background-color: #ec1f90; color: #fff; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
+    .footer-newsletter button:hover { background-color: #ec1f90; }
+    #form-message {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #6fd6ff !important;
+    }
+    .footer-bottom { text-align: center; margin-top: 30px; border-top: 1px solid #333; padding-top: 15px; font-size: 0.9rem; color: #bbb; }
+    @media (max-width: 768px) { .footer-container { flex-direction: column; align-items: flex-start; } }
+    .course-card-home {
+      /* ...existing code... */
+      box-shadow: none !important;
+      /* No shadow behind the course cards */
+    }
+    .popular-courses h2 {
+      color: #fff !important;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 8px;
+    }
+    .modal-content {
+      background: #232323;
+      border-radius: 16px;
+      padding: 2.2rem 2.2rem 1.5rem 2.2rem;
+      border: 1.5px solid #f53777;
+      width: 100%;
+      max-width: 370px;
+      box-shadow: 0 8px 32px rgba(65, 170, 255, 0.18);
+      color: #fff;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: modalFadeIn 0.3s;
+      margin-top: 32px;
+      margin-bottom: 0;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      min-height: 350px;
+      max-height: calc(100vh - 64px);
+      overflow-y: auto;
+      font-size: 1.08rem;
+      transition: box-shadow 0.2s, border 0.2s;
+    }
+    @keyframes modalFadeIn {
+      from {
+        transform: translateY(-40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    .modal-content h2 {
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      color: #f53777;
+      text-align: center;
+      font-weight: 700;
+      width: 100%;
+    }
+    .modal-content input {
+      width: 100%;
+      padding: 1rem 1.1rem;
+      border-radius: 8px;
+      border: 1px solid #333;
+      background: #181818;
+      color: #e0e0e0;
+      font-size: 1.08rem;
+      margin-bottom: 1.1rem;
+      transition: border 0.2s, box-shadow 0.2s;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .modal-content input:focus {
+      border: 1.5px solid #41aaff;
+      outline: none;
+      box-shadow: 0 0 0 2px #41aaff33;
+    }
+    .modal-content .btn {
+      background: linear-gradient(90deg, #41aaff 0%, #f53777 100%);
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 0.9rem 0;
+      font-weight: 700;
+      letter-spacing: 1px;
+      transition: background 0.3s, box-shadow 0.2s;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1.12rem;
+      margin-top: 0.5rem;
+      box-shadow: 0 2px 8px rgba(65,170,255,0.08);
+    }
+    .modal-content .btn:hover {
+      background: linear-gradient(90deg, #f53777 0%, #41aaff 100%);
+      box-shadow: 0 4px 16px rgba(65,170,255,0.13);
+    }
+    .modal-content .close {
+      position: absolute;
+      top: 1.1rem;
+      right: 1.1rem;
+      font-size: 1.7rem;
+      color: #aaa;
+      cursor: pointer;
+      transition: color 0.2s;
+      z-index: 2;
+    }
+    .modal-content .close:hover {
+      color: #f53777;
+    }
+    @media (max-width: 600px) {
+      .modal {
+        padding: 0 2vw;
+      }
+      .modal-content {
+        padding: 1.1rem 0.5rem 1rem 0.5rem;
+        max-width: 99vw;
+        min-width: 0;
+        font-size: 0.98rem;
+        border-radius: 10px;
+      }
+      .modal-content input {
+        font-size: 1rem;
+        padding: 0.8rem 0.7rem;
+        border-radius: 7px;
+      }
+      .modal-content .btn {
+        font-size: 1.01rem;
+        padding: 0.8rem 0;
+        border-radius: 22px;
+      }
+      .modal-content .close {
+        font-size: 1.3rem;
+        top: 0.7rem;
+        right: 0.7rem;
+      }
+    }
+    @media (max-width: 400px) {
+      .modal-content {
+        padding: 0.7rem 0.2rem 0.7rem 0.2rem;
+        font-size: 0.93rem;
+      }
+    }
+    .course-section-box {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 2.5rem 3.2rem 2rem 3.2rem;
+      border-radius: 18px;
+      position: relative;
+      z-index: 2;
+      background: rgba(24,24,24,0.32);
+      border-radius: 8px;
+      box-shadow: 0 4px 18px 0 rgba(65,170,255,0.10), 0 1px 6px rgba(245,55,119,0.08);
+      color: #fff;
+      text-align: center;
+      border: 1.5px solid rgba(255,255,255,0.13);
+      backdrop-filter: blur(5px) saturate(160%);
+      -webkit-backdrop-filter: blur(5px) saturate(160%);
+      transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+    }
+    @media (max-width: 900px) {
+      .course-section-box {
+        max-width: 99vw;
+        padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+        border-radius: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo" style="padding-left:40px;margin:0;display:flex;align-items:center;">
+      <a href="index.html" style="display:inline-block;">
+        <img src="images/Logo1.png" alt="Logo"
+          style="height:110px;width:110px;min-width:110px;min-height:110px;border-radius:50%;object-fit:cover;border:none;background:none;box-shadow:none;margin:-18px 0 -18px 0;">
+      </a>
+    </div>
+    <div class="hamburger" id="hamburgerMenu" aria-label="Open menu" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" style="color:#fff;">Home</a></li>
+      <li><a href="courses.html" style="color:#fff;">Courses</a></li>
+      <li><a href="contact.html" style="color:#fff;">Contact</a></li>
+      <li class="nav-register-login" style="display:none;"><a href="#" id="mobileRegisterLink">Register</a></li>
+      <li class="nav-register-login" style="display:none;"><a href="#" id="mobileLoginLink">Login</a></li>
+    </ul>
+    <div id="navbarActions" style="display:flex;gap:1rem;align-items:center;">
+      <button id="registerBtn" class="btn" style="font-size:1rem;">Register</button>
+      <button id="loginBtn" class="btn" style="font-size:1rem;background:#41aaff;">Login</button>
+      <div class="profile-menu" id="profileMenu" style="display:none;position:relative;">
+        <img src="images/profile-icon.png" alt="Profile" class="profile-icon" id="profileButton" style="width:40px;height:40px;border-radius:50%;border:2px solid #f53777;background:#fff;object-fit:cover;cursor:pointer;" />
+        <div class="dropdown" id="dropdownMenu" style="display:none;position:absolute;right:0;top:48px;background:#232323;border-radius:10px;box-shadow:0 2px 12px rgba(65,170,255,0.13);min-width:160px;z-index:1000;">
+          <a href="profile.html" style="display:block;padding:0.9rem 1.2rem;color:#fff;text-decoration:none;font-size:1.05rem;border-bottom:1px solid #333;transition:background 0.2s;">View Profile</a>
+          <a href="#" id="logoutProfile" style="display:block;padding:0.9rem 1.2rem;color:#f53777;text-decoration:none;font-size:1.05rem;cursor:pointer;">Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Remove static modals, use dynamic modal system -->
+ 
+  <section class="popular-courses" style="padding-bottom: 3.5rem; margin-bottom: 2.5rem; position:relative; overflow:hidden;">
+    <br><br><br>
+<!-- Background video -->
+    <video autoplay muted loop playsinline id="popularCoursesBgVideo" style="position:absolute;top:0;left:0;width:100vw;height:100%;object-fit:cover;z-index:0;min-height:100%;min-width:100%;pointer-events:none;filter:none;">
+      <source src="videos/new vid.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="course-section-box">
+    <div style="position:relative;z-index:1;">
+      <h2>Popular Online Courses</h2>
+      <div class="course-list-home">
+        <div class="course-card-home">
+          <img src="images/3.jpg" alt="Web Development">
+          <h4>Web Development Masterclass</h4>
+          <p>gBuild modern websites and web apps from scratch using HTML, CSS, and JavaScript.</p>
+          <a href="#" class="btn view-details-btn" data-course="webdev"><span class="lock-icon" style="margin-right:6px;">&#128274;</span>Login to View</a>
+        </div>
+        <div class="course-card-home">
+          <img src="images/2.png" alt="UI/UX Design">
+          <h4>UI/UX Design Bootcamp</h4>
+          <p>Master the art of user interface and user experience design with hands-on projects.</p>
+          <a href="#" class="btn view-details-btn" data-course="uiux"><span class="lock-icon" style="margin-right:6px;">&#128274;</span>Login to View</a>
+        </div>
+        <div class="course-card-home">
+          <img src="images/4.png" alt="Python Programming">
+          <h4>Python Programming Essentials</h4>
+          <p>Learn Python from basics to advanced and start building your own applications.</p>
+          <a href="#" class="btn view-details-btn" data-course="python"><span class="lock-icon" style="margin-right:6px;">&#128274;</span>Login to View</a>
+        </div>
+      </div>
+    </div>
+    </div>
+    <br><br><br>
+  </section>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>LearnOnline</h2>
+        <p>Empowering learners everywhere with quality online education and resources.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="footer-newsletter">
+        <h3>Subscribe</h3>
+        <p>Get the latest courses and updates directly in your inbox.</p>
+        <form id="newsletter-form">
+          <input type="email" id="email" placeholder="Your email address" required />
+          <button type="submit">Subscribe</button>
+        </form>
+        <p id="form-message"></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 LearnOnline. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script>
+    // Helper function to create modal
+    function createModal(type) {
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+      modal.id = type + 'Modal';
+      modal.style.display = 'flex';
+      modal.innerHTML = `
+        <div class="modal-content">
+          <span class="close" id="close${type.charAt(0).toUpperCase() + type.slice(1)}Modal">&times;</span>
+          <h2>${type === 'register' ? 'Register' : 'Login'}</h2>
+          ${type === 'register' ? `
+            <input type="text" id="registerName" placeholder="Full Name" required />
+            <input type="email" id="registerEmail" placeholder="Email Address" required />
+            <input type="password" id="registerPassword" placeholder="Password" required />
+            <button class="btn" id="submitRegister">Create Account</button>
+            <p style="margin-top:1rem;font-size:0.9rem;color:#bbb;text-align:center;">
+              By continuing, you agree to our <a href="#" style="color:#41aaff;text-decoration:underline;">Terms of Service</a> and
+              <a href="#" style="color:#41aaff;text-decoration:underline;">Privacy Policy</a>.
+            </p>
+          ` : `
+            <input type="email" id="loginEmail" placeholder="Email Address" required />
+            <input type="password" id="loginPassword" placeholder="Password" required />
+            <button class="btn" id="submitLogin">Login</button>
+            <p style="margin-top:1rem;font-size:0.9rem;color:#bbb;text-align:center;">
+              Don't have an account? <a href="#" id="openRegisterModal" style="color:#41aaff;text-decoration:underline;">Register here</a>.
+            </p>
+          `}
+        </div>
+      `;
+      document.body.appendChild(modal);
+      // Close modal logic
+      modal.querySelector('.close').onclick = () => modal.remove();
+      window.onclick = (event) => {
+        if (event.target === modal) modal.remove();
+      };
+      // Register link in login modal
+      if (type === 'login') {
+        modal.querySelector('#openRegisterModal').onclick = (e) => {
+          e.preventDefault();
+          modal.remove();
+          createModal('register');
+        };
+      }
+    }
+    // Register button
+    document.getElementById('registerBtn').onclick = () => createModal('register');
+    // Login button
+    document.getElementById('loginBtn').onclick = () => createModal('login');
+
+    // --- View Details Lock/Unlock Logic ---
+    function updateViewDetailsButtons() {
+      const isLoggedIn = localStorage.getItem('learnonline_loggedin') === 'true';
+      document.querySelectorAll('.view-details-btn').forEach(btn => {
+        if (isLoggedIn) {
+          btn.innerHTML = 'View Details';
+          btn.href = 'course-detail.html';
+          btn.classList.remove('locked');
+        } else {
+          btn.innerHTML = '<span class="lock-icon" style="margin-right:6px;">&#128274;</span>Login to View';
+          btn.href = '#';
+          btn.classList.add('locked');
+        }
+      });
+    }
+    // On page load and after login/logout
+    updateViewDetailsButtons();
+    // Clicking locked button opens login modal
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('view-details-btn') && e.target.classList.contains('locked')) {
+        e.preventDefault();
+        createModal('login');
+      }
+    });
+    // After login, unlock buttons
+    function handleLogin() {
+      const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+      const password = document.getElementById('loginPassword').value;
+      const user = JSON.parse(localStorage.getItem('learnonline_user'));
+      if (user && user.email === email && user.password === password) {
+        alert('Login successful!');
+        document.querySelector('.modal').remove();
+        localStorage.setItem('learnonline_loggedin', 'true');
+        updateAuthUI(true);
+        updateViewDetailsButtons(); // unlock buttons
+      } else {
+        alert('Invalid email or password!');
+      }
+    }
+    // Registration and Login logic
+    function handleRegister() {
+      const name = document.getElementById('registerName').value.trim();
+      const email = document.getElementById('registerEmail').value.trim().toLowerCase();
+      const password = document.getElementById('registerPassword').value;
+      if (!name || !email || !password) {
+        alert('Please fill all fields.');
+        return;
+      }
+      // Save to localStorage
+      localStorage.setItem('learnonline_user', JSON.stringify({ name, email, password }));
+      alert('Registration successful! You can now login.');
+      document.querySelector('.modal').remove();
+    }
+    // Listen for modal creation
+    const observer = new MutationObserver(() => {
+      const regBtn = document.getElementById('submitRegister');
+      if (regBtn) regBtn.onclick = handleRegister;
+      const logBtn = document.getElementById('submitLogin');
+      if (logBtn) logBtn.onclick = handleLogin;
+    });
+    observer.observe(document.body, { childList: true });
+    // On page load, show profile if already logged in
+    (function() {
+      const user = JSON.parse(localStorage.getItem('learnonline_user'));
+      if (user && user.email && user.password) {
+        if (localStorage.getItem('learnonline_loggedin') === 'true') {
+          updateAuthUI(true);
+        }
+      }
+    })();
+    // Logout functionality
+    const logoutProfile = document.getElementById('logoutProfile');
+    if (logoutProfile) {
+      logoutProfile.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('Logged out successfully!');
+        localStorage.setItem('learnonline_loggedin', 'false');
+        updateAuthUI(false);
+        updateViewDetailsButtons(); // lock buttons
+        if (dropdownMenu) dropdownMenu.style.display = 'none';
+      });
+    }
+    // Profile dropdown show/hide logic
+    (function() {
+      const profileButton = document.getElementById('profileButton');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+      if (profileButton && dropdownMenu) {
+        profileButton.addEventListener('click', function(e) {
+          e.stopPropagation();
+          dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        });
+        document.addEventListener('click', function(e) {
+          if (dropdownMenu.style.display === 'block' && !dropdownMenu.contains(e.target) && e.target !== profileButton) {
+            dropdownMenu.style.display = 'none';
+          }
+        });
+        const viewProfile = dropdownMenu.querySelector('a[href="profile.html"]');
+        if (viewProfile) {
+          viewProfile.addEventListener('click', function() {
+            dropdownMenu.style.display = 'none';
+          });
+        }
+      }
+    })();
+    // Login/Register/Profile UI logic (same as index.html)
+    function updateAuthUI(isLoggedIn) {
+      const registerBtn = document.getElementById('registerBtn');
+      const loginBtn = document.getElementById('loginBtn');
+      const profileMenu = document.getElementById('profileMenu');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+      if (isLoggedIn) {
+        if (registerBtn) registerBtn.style.display = 'none';
+        if (loginBtn) loginBtn.style.display = 'none';
+        if (profileMenu) profileMenu.style.display = 'block';
+        if (dropdownMenu) dropdownMenu.style.display = 'none';
+      } else {
+        if (registerBtn) registerBtn.style.display = '';
+        if (loginBtn) loginBtn.style.display = '';
+        if (profileMenu) profileMenu.style.display = 'none';
+        if (dropdownMenu) dropdownMenu.style.display = 'none';
+      }
+      updateViewDetailsButtons();
+    }
+    // On page load and after login/logout, always call updateAuthUI based on localStorage
+    (function() {
+      const isLoggedIn = localStorage.getItem('learnonline_loggedin') === 'true';
+      updateAuthUI(isLoggedIn);
+    })();
+    // Listen for storage changes (cross-tab/cross-page login/logout)
+    window.addEventListener('storage', function(e) {
+      if (e.key === 'learnonline_loggedin') {
+        const isLoggedIn = e.newValue === 'true';
+        updateAuthUI(isLoggedIn);
+      }
+    });
+    // Hamburger menu logic
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const navLinks = document.getElementById('navLinks');
+    hamburgerMenu.addEventListener('click', () => {
+      const isOpen = navLinks.style.display === 'flex';
+      navLinks.style.display = isOpen ? 'none' : 'flex';
+    });
+    // On click, if locked, open login modal
+    document.querySelectorAll('.view-details-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        if (btn.getAttribute('data-locked') === 'true') {
+          e.preventDefault();
+          createModal('login');
+        }
+      });
+    });
+    // Helper to show/hide profile and buttons
+    function updateAuthUI(isLoggedIn) {
+      const registerBtn = document.getElementById('registerBtn');
+      const loginBtn = document.getElementById('loginBtn');
+      const profileMenu = document.getElementById('profileMenu');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+      if (isLoggedIn) {
+        if (registerBtn) registerBtn.style.display = 'none';
+        if (loginBtn) loginBtn.style.display = 'none';
+        if (profileMenu) profileMenu.style.display = 'block';
+        if (dropdownMenu) dropdownMenu.style.display = 'none';
+      } else {
+        if (registerBtn) registerBtn.style.display = '';
+        if (loginBtn) loginBtn.style.display = '';
+        if (profileMenu) profileMenu.style.display = 'none';
+        if (dropdownMenu) dropdownMenu.style.display = 'none';
+      }
+      updateViewDetailsButtons();
+    }
+    // On page load, update auth UI
+    (function() {
+      const isLoggedIn = localStorage.getItem('learnonline_loggedin') === 'true';
+      updateAuthUI(isLoggedIn);
+    })();
+  </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('newsletter-form');
+    if(form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('form-message');
+        if (email && email.includes('@')) {
+          message.textContent = 'Thank you for subscribing!';
+          form.reset();
+        } else {
+          message.textContent = 'Please enter a valid email address.';
+        }
+      });
+    }
+  });
+  </script>
+</body>
+<script>
+// Show correct profile image in navbar icon everywhere
+document.addEventListener('DOMContentLoaded', function() {
+  function setAllProfileIcons() {
+    const user = JSON.parse(localStorage.getItem('loggedInUser') || '{}');
+    let avatar = '';
+    if(user && user.email) {
+      avatar = localStorage.getItem('avatar_' + user.email) || '';
+    }
+    if(!avatar) avatar = localStorage.getItem('profileAvatar') || '';
+    if(!avatar) avatar = 'images/profile-icon.png';
+    var icons = document.querySelectorAll('#profileButton, .profile-avatar');
+    icons.forEach(function(icon) {
+      icon.src = avatar;
+    });
+  }
+  setAllProfileIcons();
+});
+</script>
+</html>

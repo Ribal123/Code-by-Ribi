@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile - LearnOnline</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/Logo1.png">
+
+  <style>
+    body {
+      background: linear-gradient(120deg, #f53777 0%, #41aaff 100%);
+      min-height: 100vh;
+      font-family: 'Poppins', sans-serif;
+    }
+    .profile-main {
+      max-width: 900px;
+      margin: 3rem auto 2rem auto;
+      background: rgba(32, 36, 48, 0.38);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(65,170,255,0.18), 0 2px 12px rgba(245,55,119,0.13);
+      padding: 2.5rem 2.5rem 2rem 2.5rem;
+      color: #fff;
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-start;
+      position: relative;
+      border: 1.5px solid rgba(255,255,255,0.13);
+      backdrop-filter: blur(16px) saturate(140%);
+      -webkit-backdrop-filter: blur(16px) saturate(140%);
+      transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+    }
+    .profile-sidebar {
+      min-width: 220px;
+      max-width: 260px;
+      text-align: center;
+      background: transparent;
+      border-radius: 14px;
+      padding: 2rem 1.2rem 1.5rem 1.2rem;
+      box-shadow: none;
+      position: relative;
+      border: 1.5px solid rgba(255,255,255,0.18);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      transition: border 0.2s;
+    }
+    .profile-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 3px solid #f53777;
+      background: #fff;
+      object-fit: cover;
+      margin-bottom: 1.1rem;
+      box-shadow: 0 2px 12px rgba(65,170,255,0.10);
+    }
+    .profile-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.3rem;
+    }
+    .profile-email {
+      color: #41aaff;
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+      word-break: break-all;
+    }
+    .profile-btn {
+      background: #f53777;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 0.7rem 0;
+      font-weight: 600;
+      font-size: 1.08rem;
+      letter-spacing: 1px;
+      transition: background 0.3s;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 1.2rem;
+    }
+    .profile-btn:hover {
+      background: #41aaff;
+    }
+    .profile-details {
+      flex: 1;
+      background: transparent;
+      border-radius: 14px;
+      padding: 2rem 2rem 1.5rem 2rem;
+      box-shadow: none;
+      border: 1.5px solid rgba(255,255,255,0.18);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      transition: border 0.2s;
+    }
+    .profile-section-title {
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+    .profile-info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+    }
+    .profile-info-list li {
+      padding: 0.8rem 0.5rem;
+      border-bottom: 1px solid #232323;
+      font-size: 1.08rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+    }
+    .profile-label {
+      color: #41aaff;
+      font-weight: 600;
+      min-width: 140px;
+      display: inline-block;
+    }
+    .profile-value {
+      color: #fff;
+      flex: 1;
+      word-break: break-word;
+    }
+    @media (max-width: 900px) {
+      .profile-main { flex-direction: column; padding: 1.2rem 0.5rem; gap: 1.5rem; }
+      .profile-sidebar, .profile-details { width: 100%; max-width: 100%; }
+      .profile-details { padding: 1.2rem 1rem; }
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 2.5vw 1.1rem 2.5vw;
+      background: #181818;
+      position: relative;
+      z-index: 100;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+      margin: 0 auto !important;
+      padding: 0;
+      justify-content: center;
+      flex: 1;
+    }
+    .navbar .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #41aaff;
+      letter-spacing: 1px;
+      padding-left: 25px;
+    }
+    #navbarActions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-left: auto;
+    }
+  </style>
+</head>
+<body style="position:relative;min-height:100vh;overflow-x:hidden;">
+  <video autoplay muted loop playsinline poster="images/hero-poster.jpg" id="profileBgVideo"
+    style="position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:-1;filter:brightness(0.92) saturate(1.1);background:#181818;">
+    <source src="videos/new vid.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <nav class="navbar" style="position:relative;z-index:1;">
+    <div class="logo" style="padding:0 0 0 40px;margin:-18px 0 -18px 0;display:flex;align-items:center;">
+      <a href="index.html">
+        <img src="images/Logo1.png" alt="Logo" style="height:110px;width:auto;min-width:110px;min-height:110px;border-radius:50%;object-fit:cover;border:none;background:none;box-shadow:none;margin:0;padding:0;display:block;" />
+      </a>
+    </div>
+    <div class="hamburger" id="hamburgerMenu" aria-label="Open menu" tabindex="0">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links" id="navLinks" style="margin: 0 auto;">
+      <li><a href="index.html" style="color:#fff;">Home</a></li>
+      <li><a href="courses.html" style="color:#fff;">Courses</a></li>
+      <li><a href="contact.html" style="color:#fff;">Contact</a></li>
+      <!-- Removed Register/Login nav links for profile page -->
+    </ul>
+    <div id="navbarActions" style="display:flex;gap:1rem;align-items:center;">
+      <!-- Remove Register and Login buttons on profile page -->
+      <div class="profile-menu" id="profileMenu" style="display:none;">
+        <img src="images/profile-icon.png" alt="Profile" class="profile-icon" id="profileButton" style="width:40px;height:40px;border-radius:50%;border:2px solid #f53777;background:#fff;object-fit:cover;cursor:pointer;" />
+        <div class="dropdown" id="dropdownMenu" style="display:none;position:absolute;right:0;top:48px;background:#232323;border-radius:10px;box-shadow:0 2px 12px rgba(65,170,255,0.13);min-width:160px;z-index:1000;">
+          <a href="profile.html" style="display:block;padding:0.9rem 1.2rem;color:#fff;text-decoration:none;font-size:1.05rem;border-bottom:1px solid #333;transition:background 0.2s;">View Profile</a>
+          <a href="#" id="logoutProfile" style="display:block;padding:0.9rem 1.2rem;color:#f53777;text-decoration:none;font-size:1.05rem;cursor:pointer;">Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="profile-main" style="position:relative;z-index:1;">
+    <aside class="profile-sidebar">
+      <div style="position:relative;display:flex;flex-direction:column;align-items:center;">
+        <img src="images/profile-icon.png" alt="Profile" class="profile-avatar" id="profileAvatar" title="Change profile picture" />
+        <input type="file" id="profilePicInput" accept="image/*" style="display:none;" />
+        <button id="uploadPhotoIcon" type="button" title="Upload Photo" style="background:none;border:none;padding:0;margin:0.2rem 0 1.1rem 0;color:#41aaff;font-size:1.7rem;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+          <i class="fa-solid fa-image"></i>
+        </button>
+       
+      <div class="profile-name" id="profileName">My Profile</div>
+      <div class="profile-email" id="profileEmail"></div>
+      <button class="profile-btn" id="sidebarLogoutBtn">Logout</button>
+    </aside>
+    <section class="profile-details">
+      <div class="profile-section-title">Profile Details</div>
+      <ul class="profile-info-list" id="profileInfoList">
+        <!-- Profile details will be loaded here -->
+      </ul>
+    </section>
+  </div>
+  <main style="position:relative;z-index:1;">
+  <footer class="footer" style="margin-top: 60px;position:relative;z-index:1;">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>LearnOnline</h2>
+        <p>Empowering learners everywhere with quality online education and resources.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="footer-newsletter">
+        <h3>Subscribe</h3>
+        <p>Get the latest courses and updates directly in your inbox.</p>
+        <form id="newsletter-form">
+          <input type="email" id="email" placeholder="Your email address" required />
+          <button type="submit">Subscribe</button>
+        </form>
+        <p id="form-message"></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 LearnOnline. All rights reserved.</p>
+    </div>
+  </footer>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; }
+.footer { background-color: #121212; color: #f1f1f1; padding: 40px 20px 20px; }
+.footer-container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; max-width: 1200px; margin: auto; }
+.footer-brand h2 { color: #ec1f90; margin-bottom: 10px; }
+.footer-brand p { line-height: 1.6; max-width: 300px; }
+.social-icons a { color: #f1f1f1; margin-right: 10px; font-size: 1.2rem; transition: color 0.3s; }
+.social-icons a:hover { color: #ec1f90; }
+.footer-links h3, .footer-newsletter h3 { margin-bottom: 10px; color: #ec1f90; }
+.footer-links ul { list-style: none; }
+.footer-links ul li { margin-bottom: 8px; }
+.footer-links ul li a { color: #f1f1f1; text-decoration: none; transition: color 0.3s; }
+.footer-links ul li a:hover { color: #ec1f90; }
+.footer-newsletter p { margin-bottom: 10px; max-width: 300px; }
+.footer-newsletter form { display: flex; flex-wrap: wrap; gap: 10px; }
+.footer-newsletter input { padding: 10px; flex: 1 1 200px; border: none; border-radius: 4px; }
+.footer-newsletter button { padding: 10px 20px; background-color: #ec1f90; color: #fff; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
+.footer-newsletter button:hover { background-color: #ec1f90; }
+#form-message {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #6fd6ff !important;
+}
+.footer-bottom { text-align: center; margin-top: 30px; border-top: 1px solid #333; padding-top: 15px; font-size: 0.9rem; color: #bbb; }
+@media (max-width: 768px) { .footer-container { flex-direction: column; align-items: flex-start; } }
+.footer-link-blue {
+  color: #ec1f90 !important;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.footer-link-blue:hover {
+  color: #1565c0 !important;
+  text-decoration: underline;
+}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('newsletter-form');
+  if(form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('form-message');
+      if (email && email.includes('@')) {
+        message.textContent = 'Thank you for subscribing!';
+        form.reset();
+      } else {
+        message.textContent = 'Please enter a valid email address.';
+      }
+    });
+  }
+});
+</script>
+<script>
+// Profile image upload: show everywhere and persist per user
+document.addEventListener('DOMContentLoaded', function() {
+  var uploadBtn = document.getElementById('uploadPhotoIcon');
+  var fileInput = document.getElementById('profilePicInput');
+  if(uploadBtn && fileInput) {
+    uploadBtn.onclick = function() { fileInput.click(); };
+    fileInput.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if(file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          // Save avatar per user (if logged in)
+          const user = JSON.parse(localStorage.getItem('loggedInUser') || '{}');
+          if (user.email) {
+            localStorage.setItem('avatar_' + user.email, evt.target.result);
+            localStorage.setItem('profileAvatar', evt.target.result);
+          } else {
+            localStorage.setItem('profileAvatar', evt.target.result);
+          }
+          // Update all profile icons on the page
+          var icons = document.querySelectorAll('#profileButton, .profile-avatar');
+          icons.forEach(function(icon) {
+            icon.src = evt.target.result;
+          });
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+  }
+
+  // On page load, always show correct avatar everywhere
+  function setAllProfileIcons() {
+    const user = JSON.parse(localStorage.getItem('loggedInUser') || '{}');
+    let avatar = '';
+    if(user && user.email) {
+      avatar = localStorage.getItem('avatar_' + user.email) || '';
+    }
+    if(!avatar) avatar = localStorage.getItem('profileAvatar') || '';
+    if(!avatar) avatar = 'images/profile-icon.png';
+    var icons = document.querySelectorAll('#profileButton, .profile-avatar');
+    icons.forEach(function(icon) {
+      icon.src = avatar;
+    });
+  }
+  setAllProfileIcons();
+});
+</script>
+  </main>
+  <script src="js/main.js"></script>
+  <script>
+    // Load profile info from localStorage (per email)
+    function renderProfile() {
+      const user = JSON.parse(localStorage.getItem('loggedInUser') || '{}');
+      let admission = {};
+      let avatar = '';
+      if(user && user.email) {
+        // Load per-email admission and avatar
+        admission = JSON.parse(localStorage.getItem('admission_' + user.email) || '{}');
+        avatar = localStorage.getItem('avatar_' + user.email) || '';
+      }
+      if(user && user.name) {
+        document.getElementById('profileName').textContent = user.name;
+        document.getElementById('profileEmail').textContent = user.email || '';
+        if(avatar) document.getElementById('profileAvatar').src = avatar;
+        let html = '';
+        if(admission && admission.father) html += `<li><span class='profile-label'>Father's Name:</span> <span class='profile-value'>${admission.father}</span></li>`;
+        if(admission && admission.phone) html += `<li><span class='profile-label'>Phone:</span> <span class='profile-value'>${admission.phone}</span></li>`;
+        if(admission && admission.city) html += `<li><span class='profile-label'>City:</span> <span class='profile-value'>${admission.city}</span></li>`;
+        if(admission && admission.age) html += `<li><span class='profile-label'>Age:</span> <span class='profile-value'>${admission.age}</span></li>`;
+        if(admission && admission.course) html += `<li><span class='profile-label'>Course:</span> <span class='profile-value'>${admission.course}</span></li>`;
+        if(admission && admission.education) html += `<li><span class='profile-label'>Education:</span> <span class='profile-value'>${admission.education}</span></li>`;
+        if(admission && admission.address) html += `<li><span class='profile-label'>Address:</span> <span class='profile-value'>${admission.address}</span></li>`;
+        if(admission && admission.goals) html += `<li><span class='profile-label'>Goals:</span> <span class='profile-value'>${admission.goals}</span></li>`;
+        if(!html) html = `<li style='color:#aaa;text-align:center;'>No admission details yet.</li>`;
+        document.getElementById('profileInfoList').innerHTML = html;
+      } else {
+        // Try to show admission data if available (even if not logged in)
+        // Find the first admission entry in localStorage
+        let admission = null, admissionEmail = '';
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key && key.startsWith('admission_')) {
+            admission = JSON.parse(localStorage.getItem(key) || '{}');
+            admissionEmail = key.replace('admission_', '');
+            break;
+          }
+        }
+        if (admission && Object.keys(admission).length > 0) {
+          document.getElementById('profileName').textContent = admission.name || 'Admission Profile';
+          document.getElementById('profileEmail').textContent = admission.email || admissionEmail || '';
+          let html = '';
+          if(admission.father) html += `<li><span class='profile-label'>Father's Name:</span> <span class='profile-value'>${admission.father}</span></li>`;
+          if(admission.phone) html += `<li><span class='profile-label'>Phone:</span> <span class='profile-value'>${admission.phone}</span></li>`;
+          if(admission.city) html += `<li><span class='profile-label'>City:</span> <span class='profile-value'>${admission.city}</span></li>`;
+          if(admission.age) html += `<li><span class='profile-label'>Age:</span> <span class='profile-value'>${admission.age}</span></li>`;
+          if(admission.course) html += `<li><span class='profile-label'>Course:</span> <span class='profile-value'>${admission.course}</span></li>`;
+          if(admission.education) html += `<li><span class='profile-label'>Education:</span> <span class='profile-value'>${admission.education}</span></li>`;
+          if(admission.address) html += `<li><span class='profile-label'>Address:</span> <span class='profile-value'>${admission.address}</span></li>`;
+          if(admission.goals) html += `<li><span class='profile-label'>Goals:</span> <span class='profile-value'>${admission.goals}</span></li>`;
+          if(!html) html = `<li style='color:#aaa;text-align:center;'>No admission details yet.</li>`;
+          document.getElementById('profileInfoList').innerHTML = html;
+        } else {
+          document.getElementById('profileName').textContent = 'No Profile Found';
+          document.getElementById('profileEmail').textContent = '';
+          document.getElementById('profileInfoList').innerHTML = `<li style='color:#f53777;text-align:center;'>No admission data found.</li>`;
+        }
+      }
+    }
+    // Profile icon update and dropdown logic (shared)
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof updateProfileIcon === 'function') updateProfileIcon();
+      // Also update the profile icon here directly for reliability
+      var profileIcon = document.getElementById('profileButton');
+      var savedAvatar = localStorage.getItem('profileAvatar');
+      if (profileIcon) {
+        profileIcon.src = savedAvatar ? savedAvatar : 'images/profile-icon.png';
+      }
+      // Dropdown logic (same as other pages)
+      const profileButton = document.getElementById('profileButton');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+      const logoutProfile = document.getElementById('logoutProfile');
+      if (profileButton && dropdownMenu) {
+        profileButton.onclick = function(e) {
+          e.stopPropagation();
+          dropdownMenu.style.display = (dropdownMenu.style.display === 'block') ? 'none' : 'block';
+        };
+        document.addEventListener('click', function(e) {
+          if (!dropdownMenu.contains(e.target) && e.target !== profileButton) {
+            dropdownMenu.style.display = 'none';
+          }
+        });
+      }
+      if (logoutProfile) {
+        logoutProfile.onclick = function(e) {
+          e.preventDefault();
+          localStorage.clear();
+          window.location.href = 'index.html';
+        };
+      }
+      // Sidebar Logout button logic (same as navbar)
+      var sidebarLogoutBtn = document.getElementById('sidebarLogoutBtn');
+      if (sidebarLogoutBtn) {
+        sidebarLogoutBtn.onclick = function(e) {
+          e.preventDefault();
+          localStorage.clear();
+          window.location.href = 'index.html';
+        };
+      }
+    });
+    // Profile picture change logic
+    document.addEventListener('DOMContentLoaded', function() {
+      const input = document.getElementById('profilePicInput');
+      const avatar = document.getElementById('profileAvatar');
+      if(input && avatar) {
+        input.addEventListener('change', function(e) {
+          const file = e.target.files[0];
+          if(file) {
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+              localStorage.setItem('profileAvatar', evt.target.result);
+              avatar.src = evt.target.result;
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+      }
+    });
+    // After profile picture upload, update profile icon everywhere
+    document.addEventListener('DOMContentLoaded', function() {
+      const profilePicInput = document.getElementById('profilePicInput');
+      if (profilePicInput) {
+        profilePicInput.addEventListener('change', function(e) {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+              // Save avatar per user
+              const user = JSON.parse(localStorage.getItem('loggedInUser') || '{}');
+              if (user.email) {
+                localStorage.setItem('avatar_' + user.email, evt.target.result);
+                localStorage.setItem('profileAvatar', evt.target.result);
+                // Update all profile icons on the page
+                const icons = document.querySelectorAll('#profileButton, .profile-avatar');
+                icons.forEach(function(icon) {
+                  icon.src = evt.target.result;
+                });
+              }
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+      }
+      // Always update profile icon on page load
+      if (typeof updateProfileIcon === 'function') updateProfileIcon();
+    });
+    document.addEventListener('DOMContentLoaded', renderProfile);
+    // Helper function to create modal
+    function createModal(type) {
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+      modal.id = type + 'Modal';
+      modal.style.display = 'flex';
+      modal.innerHTML = `
+        <div class="modal-content">
+          <span class="close" id="close${type.charAt(0).toUpperCase() + type.slice(1)}Modal">&times;</span>
+          <h2>${type === 'register' ? 'Register' : 'Login'}</h2>
+          ${type === 'register' ? `
+            <input type="text" id="registerName" placeholder="Full Name" required />
+            <input type="email" id="registerEmail" placeholder="Email Address" required />
+            <input type="password" id="registerPassword" placeholder="Password" required />
+            <button class="btn" id="submitRegister">Create Account</button>
+            <p style="margin-top:1rem;font-size:0.9rem;color:#bbb;text-align:center;">
+              By continuing, you agree to our <a href="#" style="color:#41aaff;text-decoration:underline;">Terms of Service</a> and
+              <a href="#" style="color:#41aaff;text-decoration:underline;">Privacy Policy</a>.
+            </p>
+          ` : `
+            <input type="email" id="loginEmail" placeholder="Email Address" required />
+            <input type="password" id="loginPassword" placeholder="Password" required />
+            <button class="btn" id="submitLogin">Login</button>
+            <p style="margin-top:1rem;font-size:0.9rem;color:#bbb;text-align:center;">
+              Don't have an account? <a href="#" id="openRegisterModal" style="color:#41aaff;text-decoration:underline;">Register here</a>.
+            </p>
+          `}
+        </div>
+      `;
+      document.body.appendChild(modal);
+      // Close modal logic
+      modal.querySelector('.close').onclick = () => modal.remove();
+      window.onclick = (event) => {
+        if (event.target === modal) modal.remove();
+      };
+      // Register link in login modal
+      if (type === 'login') {
+        modal.querySelector('#openRegisterModal').onclick = (e) => {
+          e.preventDefault();
+          modal.remove();
+          createModal('register');
+        };
+      }
+    }
+    // Register button
+    document.getElementById('registerBtn').onclick = () => createModal('register');
+    // Login button
+    document.getElementById('loginBtn').onclick = () => createModal('login');
+
+    // Helper to show/hide profile and buttons
+    function updateAuthUI(isLoggedIn) {
+      const registerBtn = document.getElementById('registerBtn');
+      const loginBtn = document.getElementById('loginBtn');
+      const profileMenu = document.getElementById('profileMenu');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+      if (isLoggedIn) {
+        if (registerBtn) registerBtn.style.display = 'none';
+        if (loginBtn) loginBtn.style.display = 'none';
+        if (profileMenu) profileMenu.style.display = 'block';
+        if (dropdownMenu) dropdownMenu.style.display = 'none';
+      } else {
+        if (registerBtn) registerBtn.style.display = '';
+        if (loginBtn) loginBtn.style.display = '';
+        if (profileMenu) profileMenu.style.display = 'none';
+        if (dropdownMenu) dropdownMenu.style.display = 'none';
+      }
+    }
+
+    // Registration and Login logic
+    function handleRegister() {
+      const name = document.getElementById('registerName').value.trim();
+      const email = document.getElementById('registerEmail').value.trim().toLowerCase();
+      const password = document.getElementById('registerPassword').value;
+      if (!name || !email || !password) {
+        alert('Please fill all fields.');
+        return;
+      }
+      // Save to localStorage
+      localStorage.setItem('learnonline_user', JSON.stringify({ name, email, password }));
+      alert('Registration successful! You can now login.');
+      document.querySelector('.modal').remove();
+    }
+    function handleLogin() {
+      const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+      const password = document.getElementById('loginPassword').value;
+      const user = JSON.parse(localStorage.getItem('learnonline_user'));
+      if (user && user.email === email && user.password === password) {
+        alert('Login successful!');
+        document.querySelector('.modal').remove();
+        localStorage.setItem('learnonline_loggedin', 'true');
+        updateAuthUI(true);
+      } else {
+        alert('Invalid email or password!');
+      }
+    }
+    // Listen for modal creation
+    const observer = new MutationObserver(() => {
+      const regBtn = document.getElementById('submitRegister');
+      if (regBtn) regBtn.onclick = handleRegister;
+      const logBtn = document.getElementById('submitLogin');
+      if (logBtn) logBtn.onclick = handleLogin;
+    });
+    observer.observe(document.body, { childList: true });
+
+    // On page load, show profile if already logged in
+    (function() {
+      const user = JSON.parse(localStorage.getItem('learnonline_user'));
+      if (user && user.email && user.password) {
+        if (localStorage.getItem('learnonline_loggedin') === 'true') {
+          updateAuthUI(true);
+        }
+      }
+    })();
+
+    // Logout functionality
+    const logoutProfile = document.getElementById('logoutProfile');
+    if (logoutProfile) {
+      logoutProfile.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('Logged out successfully!');
+        localStorage.setItem('learnonline_loggedin', 'false');
+        updateAuthUI(false);
+        if (dropdownMenu) dropdownMenu.style.display = 'none';
+      });
+    }
+
+    // Dropdown menu toggle and close logic
+    const profileButton = document.getElementById('profileButton');
+    const profileMenu = document.getElementById('profileMenu');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    if (profileButton && dropdownMenu) {
+      profileButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+      });
+      document.addEventListener('click', (e) => {
+        if (dropdownMenu.style.display === 'block' && !dropdownMenu.contains(e.target) && e.target !== profileButton) {
+          dropdownMenu.style.display = 'none';
+        }
+      });
+      const viewProfile = dropdownMenu.querySelector('a[href="profile.html"]');
+      if (viewProfile) {
+        viewProfile.addEventListener('click', (e) => {
+          dropdownMenu.style.display = 'none';
+        });
+      }
+    }
+    // Mobile menu toggle
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const navLinks = document.getElementById('navLinks');
+    hamburgerMenu.addEventListener('click', () => {
+      const isOpen = navLinks.style.display === 'flex';
+      navLinks.style.display = isOpen ? 'none' : 'flex';
+    });
+  </script>
+</body>
+</html>
